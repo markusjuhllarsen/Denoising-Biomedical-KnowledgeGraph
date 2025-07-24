@@ -1,0 +1,1367 @@
+[
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P07150",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_31199",
+    "descrptrelllm": "Binding energy"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000010405",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_63580",
+    "descrptrelllm": "Binding energy"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_72754",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000007204",
+    "descrptrelllm": "Bisphenol AF binds to the estrogen receptor as a selective modulator."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_3207",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_F1LRS8",
+    "descrptrelllm": "Drug-gene binding"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_9334",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000010821",
+    "descrptrelllm": "Drug-gene binding"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_28088",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/DOID_0060548",
+    "descrptrelllm": "Interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_28197",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/DOID_0060548",
+    "descrptrelllm": "Interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000000714",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9QUN7",
+    "descrptrelllm": "Positive relationship"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P15207",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000037293",
+    "descrptrelllm": "There was co-localization and interaction between protein AR and SERCA2a."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011406",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000015830",
+    "descrptrelllm": "The protein network of chromatin-bound GR is tightly intertwined with SUMO2/3, indicating their simultaneous occupancy on chromatin."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_O88491",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000011406",
+    "descrptrelllm": "SET binding protein 1 interacts with glucocorticoid receptor in the signaling pathway."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011397",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000063728",
+    "descrptrelllm": "The pregnane X receptor interacts with the coactivator-derived peptide SRC-1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011398",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000011397",
+    "descrptrelllm": "Constitutive androstane receptor and pregnane X receptor interact in gene regulation."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000010279",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_139503",
+    "descrptrelllm": "Vitamin D receptor binds to vitamin D receptor agonists."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_O08580",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000007602",
+    "descrptrelllm": "ER-chromatin interactions"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000007602",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O08580",
+    "descrptrelllm": "ER-chromatin interactions"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P09774",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001661",
+    "descrptrelllm": "growth-promoting effect"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_139263",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_10023",
+    "descrptrelllm": "Clinically significant drug interactions may occur due to alterations in drug metabolism and clearance"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/DOID_0060318",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_139263",
+    "descrptrelllm": "Interaction between All-trans retinoic acid and Vorinostat"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_45716",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/DOID_0060318",
+    "descrptrelllm": "Interaction between All-trans retinoic acid and Vorinostat"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_3127",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_39548",
+    "descrptrelllm": "Combination"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_18243",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O35409",
+    "descrptrelllm": "Interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_18243",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000007761",
+    "descrptrelllm": "Interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27899",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001201",
+    "descrptrelllm": "Blockade"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_O13696",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P10360",
+    "descrptrelllm": "Mutations in IDH1 and TP53 can be accompanied by chromosomal instability (CIN)"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_O13696",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_72564",
+    "descrptrelllm": "IDH1 R132H/WT genotype is sensitive to temozolomide"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_O13696",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_45863",
+    "descrptrelllm": "IDH1 R132H/WT genotype is sensitive to paclitaxel"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011119",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000014419",
+    "descrptrelllm": "Interaction between NF-L and S100B"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_17026",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q6AYS8-1",
+    "descrptrelllm": "Progesterone and estradiol interact in the synchronization protocol for fixed-time artificial insemination."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001175",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001422",
+    "descrptrelllm": "The activation of histamine H1 receptor interacts with dopamine D1 receptor to increase MSN-D1 excitability."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001177",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001423",
+    "descrptrelllm": "The activation of histamine H2 receptor interacts with dopamine D2 receptor to increase MSN-D2 excitability."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001175",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001422",
+    "descrptrelllm": "The activation of histamine H1 receptor interacts with dopamine D1 receptor to increase MSN-D1 excitability."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001177",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001423",
+    "descrptrelllm": "The activation of histamine H2 receptor interacts with dopamine D2 receptor to increase MSN-D2 excitability."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_51164",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P50129",
+    "descrptrelllm": "Affinity"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_10650",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_10124",
+    "descrptrelllm": "Interaction between Sumatriptan and Zolmitriptan"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_10650",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_48273",
+    "descrptrelllm": "Interaction between Sumatriptan and Rizatriptan"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_10650",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_7478",
+    "descrptrelllm": "Interaction between Sumatriptan and Naratriptan"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001486",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001574",
+    "descrptrelllm": "Interaction between G protein-coupled receptors and P2Y6 receptor"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001486",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001574",
+    "descrptrelllm": "Interaction between G protein-coupled receptors and P2Y6 receptor"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_3516",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_50270",
+    "descrptrelllm": "Interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_70735",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_65173",
+    "descrptrelllm": "Lurasidone and iloperidone are second-generation antipsychotics."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_90933",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_3647",
+    "descrptrelllm": "Cariprazine and chlorpromazine are antipsychotics."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_5613",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_5123",
+    "descrptrelllm": "Haloperidol and fluphenazine are antipsychotics."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q99LP6",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O35409",
+    "descrptrelllm": "Interaction between GrpEL1 and Glutamate"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P42844",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q99LP6",
+    "descrptrelllm": "Enhanced interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q99LP6",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P42844",
+    "descrptrelllm": "Enhanced interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000050017",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9CPN8",
+    "descrptrelllm": "Interaction between platelet-activating factor receptor and insulin-like growth factor 2 mRNA binding protein 3"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9HCN6",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000035910",
+    "descrptrelllm": "Interaction between GPVI and thrombin"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_4910",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_8802",
+    "descrptrelllm": "Etomidate and remifentanil interact during anesthesia induction."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_8884",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_4910",
+    "descrptrelllm": "Rocuronium and etomidate interact during anesthesia induction."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_8802",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_8884",
+    "descrptrelllm": "Remifentanil and rocuronium interact during anesthesia induction."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q22038",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P70336",
+    "descrptrelllm": "RhoA interacts with ROCK in the context of spinal cord injury."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30145",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_9434",
+    "descrptrelllm": "Lithium interacts with telmisartan, leading to severe arrhythmia."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_139263",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_10023",
+    "descrptrelllm": "Co-administration of All-trans retinoic acid and Voriconazole leads to clinically significant drug interactions."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30621",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_10023",
+    "descrptrelllm": "Arsenic trioxide interacts with Voriconazole."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_139263",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_30621",
+    "descrptrelllm": "All-trans retinoic acid interacts with Arsenic trioxide."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_16714",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_9648",
+    "descrptrelllm": "Co-prescription or co-use"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P24894",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O89093",
+    "descrptrelllm": "Synthesis"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P27584",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000008452",
+    "descrptrelllm": "Interacts with transmembrane domain"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_31788",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000002005",
+    "descrptrelllm": "Luteolin-7-O-rutinoside binds to GIRK4"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_38257",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000002005",
+    "descrptrelllm": "Pheophorbide a binds to GIRK4"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_67895",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000002005",
+    "descrptrelllm": "Corosolic acid binds to GIRK4"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000027140",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000005257",
+    "descrptrelllm": "Ccnd1 interacts with Cdk4 to phosphorylate the α4 subunit."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000008247",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006514",
+    "descrptrelllm": "GluN2B interacts with PSD95, a postsynaptic scaffolding protein."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000008246",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006514",
+    "descrptrelllm": "GluN2A interacts with PSD95, a postsynaptic scaffolding protein."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000008248",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006514",
+    "descrptrelllm": "GluN2C interacts with PSD95, a postsynaptic scaffolding protein."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000008249",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006514",
+    "descrptrelllm": "GluN2D interacts with PSD95, a postsynaptic scaffolding protein."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_63629",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_43755",
+    "descrptrelllm": "Tizanidine interacts with lisinopril, leading to profound hypotension."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9Z307",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O88932",
+    "descrptrelllm": "Kir5.1 interacts with Kir4.2 for assembling a Kir4.2/Kir5.1 heterotetramer."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_5138",
+    "descrptrelllm": "Increased concentrations of caffeine in the body and lowered renal clearance of fluvoxamine"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_5118",
+    "descrptrelllm": "Augmented antidepressant effects by decreasing renal clearance and prolonging effects"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_7936",
+    "descrptrelllm": "Increased concentration of paroxetine"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_47780",
+    "descrptrelllm": "Reduced metabolism of caffeine"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_9652",
+    "descrptrelllm": "Increased likelihood of experiencing hypertension"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_9943",
+    "descrptrelllm": "Minimal interactions between caffeine and venlafaxine"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_27732",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_135342",
+    "descrptrelllm": "Increased antidepressant effects"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9R210",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000010252",
+    "descrptrelllm": "Interaction between TFEB and TRPML1"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9R210",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O88480",
+    "descrptrelllm": "Interaction between TFEB and Calcineurin"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9Z1M0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001740",
+    "descrptrelllm": "Specific interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9Z1M0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001740",
+    "descrptrelllm": "Specific interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9Z1M0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001740",
+    "descrptrelllm": "Specific interaction"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000012769",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000012773",
+    "descrptrelllm": "Polycystin-1 and polycystin-2 interact with each other."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000012777",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000012769",
+    "descrptrelllm": "Fibrocystin interacts with polycystin-1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000012777",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000012773",
+    "descrptrelllm": "Fibrocystin interacts with polycystin-2."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8R5I0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O54912",
+    "descrptrelllm": "TASK-5 channels are involved in the formation of functional channel complexes with TASK-1 and TASK-3."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8R5I0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O54912",
+    "descrptrelllm": "TASK-5 channels are involved in the formation of functional channel complexes with TASK-1 and TASK-3."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8R5I0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O54912",
+    "descrptrelllm": "TASK-5 channels are involved in the formation of functional channel complexes with TASK-1 and TASK-3."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8R5I0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O54912",
+    "descrptrelllm": "TASK-5 channels are involved in the formation of functional channel complexes with TASK-1 and TASK-3."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8R5I0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O54912",
+    "descrptrelllm": "TASK-5 channels are involved in the formation of functional channel complexes with TASK-1 and TASK-3."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8R5I0",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O54912",
+    "descrptrelllm": "TASK-5 channels are involved in the formation of functional channel complexes with TASK-1 and TASK-3."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20309",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000723",
+    "descrptrelllm": "Limited association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20309",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000723",
+    "descrptrelllm": "Association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20309",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000723",
+    "descrptrelllm": "Limited association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20309",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000723",
+    "descrptrelllm": "Limited association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20309",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000723",
+    "descrptrelllm": "Association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20309",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000723",
+    "descrptrelllm": "Limited association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_J9SQF3",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000012773",
+    "descrptrelllm": "TRPM3 interacts with Polycystin-2"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9HCN6",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000035910",
+    "descrptrelllm": "Interaction between GPVI and thrombin"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_29321",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001609",
+    "descrptrelllm": "Enhancing crop resilience to heavy metal stress"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_8802",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_4910",
+    "descrptrelllm": "Combined"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_203575",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q75Q39",
+    "descrptrelllm": "Iturin C3 interacts with membrane proteins of pathogens."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_3374",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_60833",
+    "descrptrelllm": "Capsaicin interacts with NPA to produce significantly longer-lasting corneal anesthesia than oxybuprocaine."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_29987",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_15422",
+    "descrptrelllm": "Glutamate and ATP interact in triggering contractions."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000005892",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_2814",
+    "descrptrelllm": "Interaction between arecoline and protein rootletin"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_133009",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q8CI85",
+    "descrptrelllm": "Robust binding"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_50264",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000004922",
+    "descrptrelllm": "Thiazides bind to mitochondrial CA5b as a molecular target."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_72999",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q8VHB5",
+    "descrptrelllm": "Targeting the PG domain"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P50416",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000010366",
+    "descrptrelllm": "CPT1A promotes succinylation of mitochondrial fission factor (MFF)."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000005256",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9QY31",
+    "descrptrelllm": "CDK3 interacts with Snail protein, inducing Snail degradation via the ubiquitin-proteasome system."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000014801",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P16070-10",
+    "descrptrelllm": "SPP1 interacts with CD44, associated with inhibitory T-cell proliferation."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_9168",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000001",
+    "descrptrelllm": "Sirolimus interacts with protein during the pretreatment process."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_140151",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000001",
+    "descrptrelllm": "Cyclosporine A interacts with protein during the pretreatment process."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006120",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Cytochrome P450 2C9."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_15864",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006120",
+    "descrptrelllm": "Luteolin was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Cytochrome P450 2C9."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P00441",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Superoxide Dismutase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_15864",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P00441",
+    "descrptrelllm": "Luteolin was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Superoxide Dismutase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P11352",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Glutathione Peroxidase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_15864",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P11352",
+    "descrptrelllm": "Luteolin was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Glutathione Peroxidase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000029945",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Glutathione S-Transferase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_15864",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000029945",
+    "descrptrelllm": "Luteolin was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Glutathione S-Transferase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000005061",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Catalase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_15864",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000005061",
+    "descrptrelllm": "Luteolin was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Catalase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000017313",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Vanin-1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_15864",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000017313",
+    "descrptrelllm": "Luteolin was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Vanin-1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_30778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9QZN9",
+    "descrptrelllm": "Gallic acid was investigated using molecular docking and molecular dynamic simulation techniques to assess its interaction with Cannabinoid Receptor CB2."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P80226",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006135",
+    "descrptrelllm": "Association"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000006126",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P70424",
+    "descrptrelllm": "CYP2S1- ERBB2 and EPH-Ephrin signaling."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000003288",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000012622",
+    "descrptrelllm": "Proteins UBC, PGRMC1, and FANCG are the most frequent common interactors across various micCYPs."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9EQR6",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000012622",
+    "descrptrelllm": "Proteins UBC, PGRMC1, and FANCG are the most frequent common interactors across various micCYPs."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000006120",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006132",
+    "descrptrelllm": "Furthermore, micCYPs such as CYP2C9, 3A5, 2E1, 2A6, 4F2, and 4A11 may be involved in potentially binary interactions with other micCYPs."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P05181",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P11509",
+    "descrptrelllm": "Furthermore, micCYPs such as CYP2C9, 3A5, 2E1, 2A6, 4F2, and 4A11 may be involved in potentially binary interactions with other micCYPs."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000006140",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006135",
+    "descrptrelllm": "Furthermore, micCYPs such as CYP2C9, 3A5, 2E1, 2A6, 4F2, and 4A11 may be involved in potentially binary interactions with other micCYPs."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P97504",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000133",
+    "descrptrelllm": "BMX interacts with Sp1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_28197",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000007204",
+    "descrptrelllm": "Daidzein binds to estrogen receptors."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q1JPZ3",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000017522",
+    "descrptrelllm": "DDR2 interacted with Src kinase, leading to the nuclear translocation of YAP1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_50131",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000008473",
+    "descrptrelllm": "Decitabine binds to hemopoietic cell kinase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_26536",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000008473",
+    "descrptrelllm": "Retinoic acid binds to hemopoietic cell kinase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_50131",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P01108",
+    "descrptrelllm": "Decitabine binds to MYC proto-oncogene."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_26536",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P01108",
+    "descrptrelllm": "Retinoic acid binds to MYC proto-oncogene."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_50131",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q16828",
+    "descrptrelllm": "Decitabine binds to dual specificity phosphatase 6."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/DOID_162",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/GO_0002436",
+    "descrptrelllm": "Cancer cells interact with macrophages in the coculture system."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q1JPZ3",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P89113",
+    "descrptrelllm": "DDR2 interacts with Src kinase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q8K4B7",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PW_0001139",
+    "descrptrelllm": "fmo-4 interacts with calcium signaling."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P52631",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P47712",
+    "descrptrelllm": "STAT3 binds to the PLA2G4A promoter."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000023711",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P47712",
+    "descrptrelllm": "RelB binds to the PLA2G4A promoter."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9Z0W1",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000024112",
+    "descrptrelllm": "Nerve Growth Factor interacts with TrkA receptor."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P52086",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9Y259",
+    "descrptrelllm": "Adenosylcobalamin binds to ethanolamine ammonia-lyase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_63629",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_43755",
+    "descrptrelllm": "Tizanidine interacts with lisinopril."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000001778",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000014306",
+    "descrptrelllm": "IKBKE interacts with and phosphorylates RRM2."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P20417",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006248",
+    "descrptrelllm": "Distinct gene expression patterns of Ptpn1 and Cyp4a14."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P41216",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q8T9S7",
+    "descrptrelllm": "Distinct gene expression patterns of Acsl1 and Pten."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_244418",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q64133",
+    "descrptrelllm": "Dehydrocostus lactone interacts with monoamine oxidase A (MAO-A) through hydrogen bond, hydrophobic, and electrostatic interactions."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000009614",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000060269",
+    "descrptrelllm": "Facilitate paracrine secretion"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000009614",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q6AYS8-1",
+    "descrptrelllm": "KLK8 interacts with Estradiol."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_63629",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_43755",
+    "descrptrelllm": "Tizanidine interacts with lisinopril."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000009885",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000014368",
+    "descrptrelllm": "LOXL2 interacts with RuvB-Like 1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000009885",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000014369",
+    "descrptrelllm": "LOXL2 interacts with RuvB-Like 2."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000009885",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000003682",
+    "descrptrelllm": "LOXL2 interacts with Actin-like protein 6A."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000009885",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006533",
+    "descrptrelllm": "LOXL2 interacts with DNA methyltransferase 1-associated protein 1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_50264",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000004922",
+    "descrptrelllm": "Thiazides bind to CA5b."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_72999",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q8VHB5",
+    "descrptrelllm": "Targeting the PG domain"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_47657",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q3TT99",
+    "descrptrelllm": "Roflumilast binds to Phosphodiesterase 4 (PDE4)."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P50416",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000010366",
+    "descrptrelllm": "CPT1A promotes succinylation of mitochondrial fission factor (MFF)."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000005256",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9QY31",
+    "descrptrelllm": "CDK3 interacts with Snail protein."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000014801",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P16070-10",
+    "descrptrelllm": "SPP1 interacts with CD44."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9R1S9",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000011038",
+    "descrptrelllm": "MDK interacts with NCL."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000006119",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000010119",
+    "descrptrelllm": "CYP2C8 interacts with proteins involved in autophagy."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000006126",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P70424",
+    "descrptrelllm": "CYP2S1 interacts with ERBB2."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000006130",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000006121",
+    "descrptrelllm": "CYP3A4 interacts with CYP2D6 in drug-gene interactions."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011398",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000011397",
+    "descrptrelllm": "Interactions"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000014196",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000001543",
+    "descrptrelllm": "PD-1 interacts with PD-L1."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P97504",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000000133",
+    "descrptrelllm": "BMX interacts with Sp1, a transcription factor critical for the Vegfr2 promoter."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P34227",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000011297",
+    "descrptrelllm": "PRDX6 interacts with NNMT to prevent its binding to TRIM56."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_39548",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/CHEBI_50275",
+    "descrptrelllm": "Co-administered"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_O00522",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_O00522",
+    "descrptrelllm": "Protein-protein interaction (PPI) analysis was performed."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_73224",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000019904",
+    "descrptrelllm": "Allyl isothiocyanate binds to FKBP1A gene."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011163",
+    "relationship_label": "Interacts with",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002434",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9H825",
+    "descrptrelllm": "Interactions among NFAT5, methyltransferase-like 3 (METTL3), and insulin-like growth factor 2 mRNA-binding protein 3 (IGF2BP3)."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000011163",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P0CB50",
+    "descrptrelllm": "NFAT5 binds to the peroxiredoxin 1 (PRDX1) promoter to drive PRDX1 transcription."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000012747",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000003273",
+    "descrptrelllm": "PI3K isoforms interact physically with IGF-1-receptor."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_48281",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_P30994",
+    "descrptrelllm": "S-pindolol interacts with central 5-hydroxytryptamine/serotonin receptor activity."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q5ZMN3",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PW_0001842",
+    "descrptrelllm": "PHB2 interacted with the mitophagy pathway, aiding in bacterial survival and persistent infection."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q9FN02",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000023694",
+    "descrptrelllm": "PP7 interacts with the Drosophila retinal degeneration C gene product (rdgC)."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_G5EBX9",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_O35655",
+    "descrptrelllm": "Binding"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_000018263",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/GO_0031580",
+    "descrptrelllm": "Amino acid residues interact with lipids, anchoring TRPC5 channels within lipid rafts."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q08881",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000003118",
+    "descrptrelllm": "Multi-protein complex"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q08881",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000009683",
+    "descrptrelllm": "Multi-protein complex"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q08881",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000022741",
+    "descrptrelllm": "Multi-protein complex"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q08881",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q60787",
+    "descrptrelllm": "Multi-protein complex"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q08881",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000011033",
+    "descrptrelllm": "Multi-protein complex"
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_Q01621",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9V9N4",
+    "descrptrelllm": "Lck interacts with adapter proteins."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P43403",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_Q9V9N4",
+    "descrptrelllm": "ZAP70 interacts with adapter proteins."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P55094",
+    "relationship_label": "Interacts",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_0002437",
+    "node2": "http://purl.obolibrary.org/obo/PR_000015847",
+    "descrptrelllm": "NR2C2 was responsible for recruiting KMT5C to the UPP1 promoter."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/PR_P55094",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_000015847",
+    "descrptrelllm": "NR2C2 was responsible for recruiting KMT5C to the UPP1 promoter."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_141126",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P19961",
+    "descrptrelllm": "Polymatin B shows strong binding affinity in alpha-amylase."
+  },
+  {
+    "node1": "http://purl.obolibrary.org/obo/CHEBI_16112",
+    "relationship_label": "Binds to",
+    "relationship_iri": "http://purl.obolibrary.org/obo/RO_000243",
+    "node2": "http://purl.obolibrary.org/obo/PR_P19961",
+    "descrptrelllm": "Chlorogenic acid shows strong binding affinity in alpha-amylase."
+  }
+]
