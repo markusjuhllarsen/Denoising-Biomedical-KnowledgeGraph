@@ -6,10 +6,7 @@ from collections import defaultdict
 import csv
 import re
 
-# Fonction pour web_search (simulé avec test réel ; intégrez tool)
-def web_search(query):
-    # Test réel : Appel simulé basé sur tool (retourne abstract PubMed)
-    return "PubMed PMC9876543: Strong binding evidence for CHEBI_404903 and PR_000022718; inhibits with high affinity. Docking studies show strong interaction."
+
 
 def extend_scores_with_pubmed(tsv_path):
     extended = {}
@@ -19,10 +16,7 @@ def extend_scores_with_pubmed(tsv_path):
             if len(row) == 3 and row[2] == '1':
                 source_iri = row[0].strip().split('/')[-1]
                 target_iri = row[1].strip().split('/')[-1]
-                abstract = web_search(f"{source_iri} {target_iri} interaction PubMed abstract")
-                terms = re.findall(r'\b(binding|inhibits|evidence|affinity|strong)\b', abstract.lower(), re.I)
-                score = min(1.0, len(terms) / 5.0)
-                extended[(source_iri, target_iri)] = score
+                extended[(source_iri, target_iri)] = None
     print(f"Scores étendus pour {len(extended)} triplets.")
     return extended
 
@@ -54,14 +48,49 @@ def load_standardized_graph_for_gcn(json_path):
         nodes.add(node2)
         edges.append((node1, node2, relation))
     node_to_idx = {node: idx for idx, node in enumerate(nodes)}
-    # Load real GCN scores from file (ensure the order matches 'edges')
+    # Load real GCN scores and create a mapping (source, target, relation) -> score
     gcn_scores_path = os.path.join(os.path.dirname(__file__), 'kg_gcn_scores_structured.npy')
-    if os.path.exists(gcn_scores_path):
-        gcn_scores = np.load(gcn_scores_path)
-        if len(gcn_scores) != len(edges):
-            print(f"Warning: Number of GCN scores ({len(gcn_scores)}) does not match number of edges ({len(edges)}).")
+    triplets_path = os.path.join(os.path.dirname(__file__), 'structured_training_data', 'processed_triplets.json')
+    if os.path.exists(gcn_scores_path) and os.path.exists(triplets_path):
+        gcn_scores_all = np.load(gcn_scores_path)
+        with open(triplets_path, 'r', encoding='utf-8') as f:
+            triplets_data = json.load(f)
+        if len(gcn_scores_all) != len(triplets_data):
+            print(f"Warning: Number of GCN scores ({len(gcn_scores_all)}) does not match number of processed triplets ({len(triplets_data)}). Using random scores.")
+            gcn_scores = np.random.uniform(0.5, 1.0, len(edges))
+        else:
+            # Build mapping: (source_name, target_name, relation) -> score
+            # Use id_to_name for mapping
+            descriptions_path = os.path.join(os.path.dirname(__file__), 'data_for_corentin+g-retriever', 'new_kg', 'descriptions.json')
+            with open(descriptions_path, 'r', encoding='utf-8') as f:
+                descriptions = json.load(f)
+            id_to_name = {entity['id']: entity['properties']['name'] for entity in descriptions}
+            triplet_to_score = {}
+            for triplet, score in zip(triplets_data, gcn_scores_all):
+                s = id_to_name.get(triplet['source_id'], triplet['source_id'])
+                t = id_to_name.get(triplet['target_id'], triplet['target_id'])
+                r = triplet['relation']
+                triplet_to_score[(s, t, r)] = score
+            # Assign score to each edge in the standardized graph
+            gcn_scores = []
+            missing = 0
+            for node1, node2, relation in edges:
+                key = (node1, node2, relation)
+                if key in triplet_to_score:
+                    gcn_scores.append(triplet_to_score[key])
+                else:
+                    # Try reverse (for undirected graphs)
+                    key_rev = (node2, node1, relation)
+                    if key_rev in triplet_to_score:
+                        gcn_scores.append(triplet_to_score[key_rev])
+                    else:
+                        gcn_scores.append(0.0)
+                        missing += 1
+            gcn_scores = np.array(gcn_scores)
+            if missing > 0:
+                print(f"Warning: {missing} edges in the standardized graph did not match any GCN score. (Set to 0.0)")  # Erreur de mapping (à régler le plus vite possible)
     else:
-        print(f"Warning: GCN scores file not found, using random scores as placeholder.")
+        print(f"Warning: GCN scores or processed_triplets.json file not found, using random scores as placeholder.")
         gcn_scores = np.random.uniform(0.5, 1.0, len(edges))
     print(f"KG standardisé chargé : {len(nodes)} nodes, {len(edges)} edges.")
     return node_to_idx, edges, gcn_scores
@@ -206,4 +235,4 @@ if __name__ == "__main__":
     scores = extend_scores_with_pubmed('complete_groundtruth (1).tsv')
     node_to_idx, edges, gcn_scores = load_standardized_graph_for_gcn('standardized_graph2_ro (2).json')
     final_report = validate_removed_triplets_final(scores, gcn_scores)
-    print("\nVALIDATION COMPLETE!")
+    print("\n\n")
