@@ -402,10 +402,7 @@ def main():
     print(f"Scores: {scores_path}")
     print(f"Entities: {num_entities:,}")
     print(f"Triplets: {len(triplets):,}")
-    print(f"\nNEXT STEPS:")
-    print("1. Use kg_gcn_scores_structured.npy for adaptive denoising")
-    print("2. Re-test validation with new scores")
-    print("3. Compare performance with previous denoising")
+
 
 if __name__ == "__main__":
     main()
