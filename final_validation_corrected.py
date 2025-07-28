@@ -54,7 +54,15 @@ def load_standardized_graph_for_gcn(json_path):
         nodes.add(node2)
         edges.append((node1, node2, relation))
     node_to_idx = {node: idx for idx, node in enumerate(nodes)}
-    gcn_scores = np.random.uniform(0.5, 1.0, len(edges))  # Placeholder ; intégrez vrai GCN
+    # Load real GCN scores from file (ensure the order matches 'edges')
+    gcn_scores_path = os.path.join(os.path.dirname(__file__), 'kg_gcn_scores_structured.npy')
+    if os.path.exists(gcn_scores_path):
+        gcn_scores = np.load(gcn_scores_path)
+        if len(gcn_scores) != len(edges):
+            print(f"Warning: Number of GCN scores ({len(gcn_scores)}) does not match number of edges ({len(edges)}).")
+    else:
+        print(f"Warning: GCN scores file not found, using random scores as placeholder.")
+        gcn_scores = np.random.uniform(0.5, 1.0, len(edges))
     print(f"KG standardisé chargé : {len(nodes)} nodes, {len(edges)} edges.")
     return node_to_idx, edges, gcn_scores
 
