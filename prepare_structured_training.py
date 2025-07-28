@@ -252,11 +252,7 @@ def main():
     print(f"Triplets: {len(processed_triplets):,}")
     print(f"Relations: {len(relation_types)}")
     
-    print(f"\nNEXT STEPS:")
-    print("1. Use the created matrices for GCN training")
-    print("2. Adapt the existing GCN model to the new data")
-    print("3. Generate new more reliable scores")
-    print("4. Re-test validation with the new scores")
+)
 
 if __name__ == "__main__":
     main()
