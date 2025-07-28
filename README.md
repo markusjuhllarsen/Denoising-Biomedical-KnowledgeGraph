@@ -119,8 +119,8 @@ The GCN model used in this pipeline is implemented in `retrain_gcn_structured.py
   - Adam
 
 - **Training:**
-  - Supervised with positive/negative pairs (DrugBank DTI for positives, random negatives)
-  - Early stopping based on validation AUC (if implemented)
+  - Supervised with positive/negative pairs 
+  - Early stopping based on validation AUC 
 
 **Reproducibility:**
 - All model code is in `retrain_gcn_structured.py` (see class `StructuredGCN`).
