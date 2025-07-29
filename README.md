@@ -102,16 +102,6 @@ The GCN model used in this pipeline is implemented in `retrain_gcn_structured.py
   2. Hidden → GCNConv → ReLU → Dropout
   3. Hidden → GCNConv → Output
 
-- **Aggregation Function:**
-  - Uses the default aggregation of `GCNConv` (sum/mean, as implemented in PyTorch Geometric)
-
-- **Other Techniques:**
-  - **Label Propagation:** Not used
-  - **Attention Mechanisms:** Not used
-  - **DropEdge:** Not used
-  - **BatchNorm:** Not used
-  - **Edge features:** Not used (only node features and adjacency)
-
 - **Loss Function:**
   - Binary cross-entropy (BCEWithLogitsLoss) for link prediction
 
