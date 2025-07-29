@@ -31,7 +31,6 @@ This project implements a pipeline for denoising biomedical knowledge graphs usi
 - **sklearn version**: 1.6.1
 - **torch_geometric version**: 2.6.1
 - **Hardware**: GPU recommended for GCN training (CUDA support).
-- **Hardware**: GPU recommended for GCN training (CUDA support).
 
 ### Setup
 1. Clone the repository:
