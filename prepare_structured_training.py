@@ -252,7 +252,7 @@ def main():
     print(f"Triplets: {len(processed_triplets):,}")
     print(f"Relations: {len(relation_types)}")
     
-)
+
 
 if __name__ == "__main__":
     main()
