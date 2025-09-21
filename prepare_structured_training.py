@@ -103,9 +103,9 @@ def create_adjacency_matrices(processed_triplets, num_entities, relation_types):
     
     # Matrices by relation type
     relation_matrices = {}
+    relations = {}
     for rel_type in relation_types:
-        relation_matrices[rel_type] = np.zeros((num_entities, num_entities), dtype=np.float32)
-    
+        relations[rel_type] = 0
     # Fill matrices
     for triplet in processed_triplets:
         source_idx = triplet['source_idx']
@@ -117,7 +117,9 @@ def create_adjacency_matrices(processed_triplets, num_entities, relation_types):
         adj_matrix[target_idx, source_idx] = 1.0
         
         # Relation-specific matrix (directed)
-        relation_matrices[relation][source_idx, target_idx] = 1.0
+        #relation_matrices[relation][source_idx, target_idx] = 1.0
+        relations[relation] += 1
+
     
     # Statistics
     total_edges = np.sum(adj_matrix) / 2  # Divided by 2 for undirected
@@ -130,7 +132,8 @@ def create_adjacency_matrices(processed_triplets, num_entities, relation_types):
     # Statistics by relation
     logging.info(f"RELATION STATISTICS:")
     for rel_type in sorted(relation_types):
-        rel_edges = np.sum(relation_matrices[rel_type])
+        #rel_edges = np.sum(relation_matrices[rel_type])
+        rel_edges = relations[rel_type]
         logging.info(f"{rel_type:<25}: {int(rel_edges):,} edges")
 
     return adj_matrix, relation_matrices
