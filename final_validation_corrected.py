@@ -1,13 +1,18 @@
 import os
 import json
-import numpy as np
 from difflib import SequenceMatcher
 from collections import defaultdict
 import csv
-import re
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(message)s",
+    datefmt="%H:%M:%S"
+)
 
 def load_id_mapping():
-    descriptions_path = os.path.join(os.path.dirname(__file__), 'data_for_corentin+g-retriever', 'new_kg', 'descriptions.json')
+    descriptions_path = os.path.join(os.path.dirname(__file__), 'data/llm_data/descriptions.json')
     with open(descriptions_path, 'r', encoding='utf-8') as f:
         descriptions = json.load(f)
     id_to_name = {}
@@ -50,7 +55,7 @@ def load_ground_truth_kg(file_path):
         for i, row in enumerate(reader):
             total_rows += 1
             if len(row) != 3:
-                print(f"Invalid row {i}: {row}")
+                logging.info(f"Invalid row {i}: {row}")
                 invalid_rows += 1
                 continue
             source_iri = row[0].strip()
@@ -62,28 +67,26 @@ def load_ground_truth_kg(file_path):
             elif row[2] == '0':
                 ground_truth_negative.add((source_id, target_id))
             else:
-                print(f"Unknown label in row {i}: {row}")
+                logging.info(f"Unknown label in row {i}: {row}")
                 invalid_rows += 1
-    print(f"Total rows processed: {total_rows}")
-    print(f"Invalid rows (wrong format or unknown label): {invalid_rows}")
-    print(f"Ground truth positive: {len(ground_truth_positive)} triplets")
-    print(f"Ground truth negative: {len(ground_truth_negative)} triplets")
+    logging.info(f"Total rows processed: {total_rows}")
+    logging.info(f"Invalid rows (wrong format or unknown label): {invalid_rows}")
+    logging.info(f"Ground truth positive: {len(ground_truth_positive)} triplets")
+    logging.info(f"Ground truth negative: {len(ground_truth_negative)} triplets")
     return ground_truth_positive, ground_truth_negative, dict(iri_to_id)
 
 def validate_removed_triplets_final():
-    print("FINAL VALIDATION - REMOVED TRIPLETS vs GROUND TRUTH")
-    print("=" * 70)
+    logging.info("FINAL VALIDATION - REMOVED TRIPLETS vs GROUND TRUTH")
     id_to_name, name_to_id = load_id_mapping()
-    print(f"Mapping loaded: {len(id_to_name)} entities")
+    logging.info(f"Mapping loaded: {len(id_to_name)} entities")
     ground_truth_positive, ground_truth_negative, iri_to_id = load_ground_truth_kg('complete_groundtruth (1).tsv')
-    print(f"Ground truth loaded: {len(ground_truth_positive)} positive, {len(ground_truth_negative)} negative triplets")
+    logging.info(f"Ground truth loaded: {len(ground_truth_positive)} positive, {len(ground_truth_negative)} negative triplets")
     removed_file = os.path.join(os.path.dirname(__file__), 'kg_adaptive_removed_triplets_structured.json')
     with open(removed_file, 'r', encoding='utf-8') as f:
         removed_data = json.load(f)
     removed_triplets = removed_data['removed_triplets']
-    print(f"Removed triplets: {len(removed_triplets)}")
-    print(f"\nVALIDATION IN PROGRESS...")
-    print("=" * 50)
+    logging.info(f"Removed triplets: {len(removed_triplets)}")
+    logging.info(f"VALIDATION IN PROGRESS...")
     validation_results = {
         'false_positive_removal': 0,
         'correct_removal_positive': 0,
@@ -93,7 +96,7 @@ def validate_removed_triplets_final():
     detailed_results = []
     for i, triplet in enumerate(removed_triplets):
         if i % 20 == 0:
-            print(f"   Progress: {i}/{len(removed_triplets)} triplets validated...")
+            logging.info(f"Progress: {i}/{len(removed_triplets)} triplets validated...")
         head_name = triplet['head']
         tail_name = triplet['tail']
         relation = triplet['relation']
@@ -131,13 +134,12 @@ def validate_removed_triplets_final():
     correct_positive = validation_results['correct_removal_positive']
     correct_negative = validation_results['correct_removal_negative']
     no_mapping = validation_results['no_mapping']
-    print(f"\nFINAL VALIDATION RESULTS:")
-    print("=" * 60)
-    print(f"Incorrect removals (false positives): {false_positives} ({false_positives/total*100:.1f}%)")
-    print(f"Correct removals (not in positives): {correct_positive} ({correct_positive/total*100:.1f}%)")
-    print(f"Correct removals (in negatives): {correct_negative} ({correct_negative/total*100:.1f}%)")
-    print(f"Mapping failed: {no_mapping} ({no_mapping/total*100:.1f}%)")
-    print(f"Total validated: {total}")
+    logging.info(f"FINAL VALIDATION RESULTS:")
+    logging.info(f"Incorrect removals (false positives): {false_positives} ({false_positives/total*100:.1f}%)")
+    logging.info(f"Correct removals (not in positives): {correct_positive} ({correct_positive/total*100:.1f}%)")
+    logging.info(f"Correct removals (in negatives): {correct_negative} ({correct_negative/total*100:.1f}%)")
+    logging.info(f"Mapping failed: {no_mapping} ({no_mapping/total*100:.1f}%)")
+    logging.info(f"Total validated: {total}")
     category_stats = {}
     for result in detailed_results:
         category = result['triplet']['relation_category']
@@ -152,10 +154,8 @@ def validate_removed_triplets_final():
             }
         category_stats[category]['total'] += 1
         category_stats[category][status] += 1
-    print(f"\nCATEGORY ANALYSIS:")
-    print("=" * 60)
-    print(f"{'Category':<25} {'Total':<8} {'False+':<8} {'Correct+':<8} {'Correct-':<8} {'NoMap':<8} {'Error rate'}")
-    print("-" * 80)
+    logging.info(f"CATEGORY ANALYSIS:")
+    logging.info(f"{'Category':<25} {'Total':<8} {'False+':<8} {'Correct+':<8} {'Correct-':<8} {'NoMap':<8} {'Error rate'}")
     for category, stats in sorted(category_stats.items()):
         total_cat = stats['total']
         false_pos = stats['false_positive_removal']
@@ -163,7 +163,7 @@ def validate_removed_triplets_final():
         correct_neg = stats['correct_removal_negative']
         no_map = stats['no_mapping']
         error_rate = (false_pos / total_cat * 100) if total_cat > 0 else 0
-        print(f"{category:<25} {total_cat:<8} {false_pos:<8} {correct_pos:<8} {correct_neg:<8} {no_map:<8} {error_rate:<8.1f}%")
+        logging.info(f"{category:<25} {total_cat:<8} {false_pos:<8} {correct_pos:<8} {correct_neg:<8} {no_map:<8} {error_rate:<8.1f}%")
     final_report = {
         'validation_method': 'ground_truth_kg_comparison',
         'ground_truth_source': 'complete_groundtruth.tsv',
@@ -175,9 +175,8 @@ def validate_removed_triplets_final():
     report_path = os.path.join(os.path.dirname(__file__), 'final_validation_report.json')
     with open(report_path, 'w', encoding='utf-8') as f:
         json.dump(final_report, f, indent=2, ensure_ascii=False)
-    print(f"\nFinal report saved: final_validation_report.json")
+    logging.info(f"Final report saved: final_validation_report.json")
     return final_report
 
 if __name__ == "__main__":
     final_report = validate_removed_triplets_final()
-    print("\n\n")

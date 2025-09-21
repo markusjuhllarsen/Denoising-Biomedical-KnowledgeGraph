@@ -15,18 +15,23 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch_geometric.nn import GCNConv
-from torch_geometric.data import Data
 import scipy.sparse as sp
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, average_precision_score
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(message)s",
+    datefmt="%H:%M:%S"
+)
 
 # --- DrugBank Integration ---
 def load_drugbank_dti_pairs(drugbank_path, mappings):
     """Load DrugBank DTI pairs and map to KG indices. Raises clear error if file is missing."""
-    print("\nLOADING DRUGBANK DTI PAIRS")
-    print("=" * 50)
+    logging.info("LOADING DRUGBANK DTI PAIRS")
     if not os.path.isfile(drugbank_path):
-        raise FileNotFoundError(f"DrugBank DTI file not found: {drugbank_path}\nPlease set the correct path via the DRUGBANK_DTI_PATH environment variable or place the file at the expected location.")
+        raise FileNotFoundError(f"DrugBank DTI file not found: {drugbank_path}.")
     dti_pairs = set()
     id_to_idx = {str(k): v for k, v in mappings['id_to_idx'].items()}
     id_to_name = mappings.get('id_to_name', {})
@@ -58,7 +63,7 @@ def load_drugbank_dti_pairs(drugbank_path, mappings):
                 if kg_drug_id in id_to_idx and kg_target_id in id_to_idx:
                     dti_pairs.add((id_to_idx[kg_drug_id], id_to_idx[kg_target_id]))
                     found_by_name += 1
-    print(f"DrugBank DTI pairs found in KG: {len(dti_pairs):,} (by ID: {found_by_id}, by name: {found_by_name})")
+    logging.info(f"DrugBank DTI pairs found in KG: {len(dti_pairs):,} (by ID: {found_by_id}, by name: {found_by_name})")
     return dti_pairs
 
 class StructuredGCN(nn.Module):
@@ -75,43 +80,38 @@ class StructuredGCN(nn.Module):
         self.num_features = num_features
         
     def forward(self, x, edge_index):
-        # Première couche GCN
         x = self.conv1(x, edge_index)
         x = F.relu(x)
         x = F.dropout(x, self.dropout, training=self.training)
         
-        # Deuxième couche GCN
         x = self.conv2(x, edge_index)
         x = F.relu(x)
         x = F.dropout(x, self.dropout, training=self.training)
         
-        # Troisième couche GCN
         x = self.conv3(x, edge_index)
         
         return x
 
 def load_structured_data():
     """Load prepared structured data"""
-    print("LOADING STRUCTURED DATA")
-    print("=" * 50)
-    data_dir = os.path.join(os.path.dirname(__file__), 'structured_training_data')
+    logging.info("LOADING STRUCTURED DATA")
+    data_dir = os.path.join(os.path.dirname(__file__), 'data/structured_training_data')
     # Load adjacency matrix
     adj_matrix = np.load(os.path.join(data_dir, 'adjacency_matrix.npy'))
-    print(f"Adjacency matrix: {adj_matrix.shape}")
+    logging.info(f"Adjacency matrix: {adj_matrix.shape}")
     # Load mappings
     with open(os.path.join(data_dir, 'mappings.json'), 'r', encoding='utf-8') as f:
         mappings = json.load(f)
-    print(f"Mappings: {mappings['num_entities']} entities")
+    logging.info(f"Mappings: {mappings['num_entities']} entities")
     # Load triplets
     with open(os.path.join(data_dir, 'processed_triplets.json'), 'r', encoding='utf-8') as f:
         triplets = json.load(f)
-    print(f"Triplets: {len(triplets)} relations")
+    logging.info(f"Triplets: {len(triplets)} relations")
     return adj_matrix, mappings, triplets
 
 def create_node_features(num_entities, mappings):
     """Create node features based on metadata"""
-    print(f"\nCREATING NODE FEATURES")
-    print("=" * 50)
+    logging.info(f"CREATING NODE FEATURES")
     # Enriched features: one-hot type, degree, text embedding, is_drug, base, name length, random
     id_to_info = mappings['id_to_info']
     id_to_idx = {int(k): v for k, v in mappings['id_to_idx'].items()}
@@ -121,7 +121,7 @@ def create_node_features(num_entities, mappings):
         entity_types.add(info['label'])
     entity_types = sorted(list(entity_types))
     type_to_idx = {etype: idx for idx, etype in enumerate(entity_types)}
-    print(f"Entity types: {len(entity_types)}")
+    logging.info(f"Entity types: {len(entity_types)}")
 
     # Compute node degrees if adjacency matrix is available in mappings
     adj = None
@@ -164,28 +164,23 @@ def create_node_features(num_entities, mappings):
         node_features[entity_idx, len(entity_types) + 4] = float(len(name)) / 100.0
         # Random feature
         node_features[entity_idx, len(entity_types) + 5] = np.random.normal(0, 0.1)
-    print(f"Features created: {node_features.shape}")
-    print(f"Feature dimension: {feature_dim}")
-    return node_features, entity_types
+    logging.info(f"Node features created: {node_features.shape}")
+    return node_features
 
 def adjacency_to_edge_index(adj_matrix):
     """Convert adjacency matrix to edge_index for PyTorch Geometric"""
-    print(f"\nCONVERTING TO EDGE_INDEX")
-    print("=" * 50)
+    logging.info(f"CONVERTING TO EDGE_INDEX")
     # Convert to sparse matrix and extract indices
     sparse_adj = sp.coo_matrix(adj_matrix)
     # Edge index: [2, num_edges]
     edge_index = np.vstack([sparse_adj.row, sparse_adj.col])
     edge_index = torch.tensor(edge_index, dtype=torch.long)
-    print(f"Edges: {edge_index.shape[1]:,}")
-    print(f"Edge index: {edge_index.shape}")
+    logging.info(f"Edge index: {edge_index.shape}")
     return edge_index
-
 
 def create_training_data_with_drugbank(triplets, num_entities, mappings, drugbank_path, test_ratio=0.2):
     """Create training and test data using DrugBank for positive/negative labels"""
-    print(f"\nCREATING TRAINING DATA (DrugBank labels)")
-    print("=" * 50)
+    logging.info(f"CREATING TRAINING DATA (DrugBank labels)")
     # Load DrugBank DTI pairs as positives
     dti_pairs = load_drugbank_dti_pairs(drugbank_path, mappings)
     if not dti_pairs:
@@ -202,7 +197,7 @@ def create_training_data_with_drugbank(triplets, num_entities, mappings, drugban
     negative_pairs = []
     positive_set = set(dti_pairs)
     num_neg = len(positive_pairs)
-    print(f"Sampling {num_neg:,} negative pairs...")
+    logging.info(f"Sampling {num_neg:,} negative pairs...")
     if TQDM_AVAILABLE:
         pbar = tqdm(total=num_neg, desc="Negative pairs")
     last_print = 0
@@ -214,7 +209,7 @@ def create_training_data_with_drugbank(triplets, num_entities, mappings, drugban
             if TQDM_AVAILABLE:
                 pbar.update(1)
             elif len(negative_pairs) % 1000 == 0 and len(negative_pairs) != last_print:
-                print(f"  {len(negative_pairs):,} / {num_neg:,} negatives sampled...")
+                logging.info(f"{len(negative_pairs):,} / {num_neg:,} negatives sampled...")
                 last_print = len(negative_pairs)
     if TQDM_AVAILABLE:
         pbar.close()
@@ -227,18 +222,17 @@ def create_training_data_with_drugbank(triplets, num_entities, mappings, drugban
     train_pairs, test_pairs, train_labels, test_labels = train_test_split(
         all_pairs, all_labels, test_size=test_ratio, random_state=42, stratify=all_labels
     )
-    print(f"Positive pairs (DrugBank): {len(positive_pairs):,}")
-    print(f"Negative pairs: {len(negative_pairs):,}")
-    print(f"Training: {len(train_pairs):,}")
-    print(f"Test: {len(test_pairs):,}")
+    logging.info(f"Positive pairs (DrugBank): {len(positive_pairs):,}")
+    logging.info(f"Negative pairs: {len(negative_pairs):,}")
+    logging.info(f"Training: {len(train_pairs):,}")
+    logging.info(f"Test: {len(test_pairs):,}")
     return (train_pairs, train_labels), (test_pairs, test_labels)
 
 def train_gcn_model(node_features, edge_index, train_data, test_data, epochs=200):
     """Train the GCN model"""
-    print(f"\nTRAINING GCN MODEL")
-    print("=" * 50)
+    logging.info(f"TRAINING GCN MODEL")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print(f"Device: {device}")
+    logging.info(f"Device: {device}")
     # Prepare data
     x = torch.tensor(node_features, dtype=torch.float).to(device)
     edge_index = edge_index.to(device)
@@ -257,7 +251,7 @@ def train_gcn_model(node_features, edge_index, train_data, test_data, epochs=200
     ).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01, weight_decay=5e-4)
     criterion = nn.BCEWithLogitsLoss()
-    print(f"Model: {sum(p.numel() for p in model.parameters()):,} parameters")
+    logging.info(f"Model: {sum(p.numel() for p in model.parameters()):,} parameters")
     # Training
     model.train()
     best_auc = 0
@@ -288,21 +282,20 @@ def train_gcn_model(node_features, edge_index, train_data, test_data, epochs=200
                 test_labels_np = test_labels.cpu().numpy()
                 auc = roc_auc_score(test_labels_np, test_probs)
                 ap = average_precision_score(test_labels_np, test_probs)
-                print(f"Epoch {epoch:3d} | Loss: {loss.item():.4f} | AUC: {auc:.4f} | AP: {ap:.4f}")
+                logging.info(f"Epoch {epoch:3d} | Loss: {loss.item():.4f} | AUC: {auc:.4f} | AP: {ap:.4f}")
                 if auc > best_auc:
                     best_auc = auc
                     best_model_state = model.state_dict().copy()
             model.train()
     # Load best model
     model.load_state_dict(best_model_state)
-    print(f"\nTRAINING COMPLETE")
-    print(f"Best AUC: {best_auc:.4f}")
+    logging.info(f"TRAINING COMPLETE")
+    logging.info(f"Best AUC: {best_auc:.4f}")
     return model
 
 def generate_triplet_scores(model, node_features, edge_index, triplets, mappings):
     """Generate scores for all triplets"""
-    print(f"\nGENERATING SCORES FOR ALL TRIPLETS")
-    print("=" * 50)
+    logging.info(f"GENERATING SCORES FOR ALL TRIPLETS")
     device = next(model.parameters()).device
     x = torch.tensor(node_features, dtype=torch.float).to(device)
     edge_index = edge_index.to(device)
@@ -314,7 +307,7 @@ def generate_triplet_scores(model, node_features, edge_index, triplets, mappings
         # Compute scores for each triplet
         for i, triplet in enumerate(triplets):
             if i % 1000 == 0:
-                print(f"   Progress: {i}/{len(triplets)} triplets processed...")
+                logging.info(f"Progress: {i}/{len(triplets)} triplets processed...")
             source_idx = triplet['source_idx']
             target_idx = triplet['target_idx']
             src_embedding = embeddings[source_idx]
@@ -325,27 +318,22 @@ def generate_triplet_scores(model, node_features, edge_index, triplets, mappings
             score = torch.sigmoid(torch.tensor(score)).item()
             scores.append(score)
     scores = np.array(scores)
-    print(f"Scores generated: {len(scores):,}")
-    print(f"Distribution: min={scores.min():.4f}, max={scores.max():.4f}, mean={scores.mean():.4f}")
+    logging.info(f"Scores generated: {len(scores):,}")
+    logging.info(f"Distribution: min={scores.min():.4f}, max={scores.max():.4f}, mean={scores.mean():.4f}")
     return scores
 
 def save_retrained_results(model, scores, mappings):
     """Save retraining results"""
-    print(f"\nSAVING RESULTS")
-    print("=" * 50)
-    output_dir = os.path.join(os.path.dirname(__file__), 'structured_training_data')
+    logging.info(f"SAVING RESULTS")
+    output_dir = os.path.join(os.path.dirname(__file__), 'data/results/gcn')
     # Save model
-    model_path = os.path.join(output_dir, 'best_structured_gcn.pth')
+    model_path = os.path.join(output_dir, 'best_gcn.pth')
     torch.save(model.state_dict(), model_path)
-    print(f"Model saved: {model_path}")
+    logging.info(f"Model saved: {model_path}")
     # Save scores
-    scores_path = os.path.join(output_dir, 'kg_structured_scores.npy')
+    scores_path = os.path.join(output_dir, 'triplet_scores.npy')
     np.save(scores_path, scores)
-    print(f"Scores saved: {scores_path}")
-    # Copy to main location for other scripts
-    main_scores_path = os.path.join(os.path.dirname(__file__), 'kg_gcn_scores_structured.npy')
-    np.save(main_scores_path, scores)
-    print(f"Scores copied: {main_scores_path}")
+    logging.info(f"Scores saved: {scores_path}")
     # Metadata
     metadata = {
         'model_type': 'StructuredGCN',
@@ -361,33 +349,23 @@ def save_retrained_results(model, scores, mappings):
     }
     with open(os.path.join(output_dir, 'training_metadata.json'), 'w', encoding='utf-8') as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
-    print(f"Metadata saved")
+    logging.info(f"Metadata saved")
     return model_path, scores_path
 
 
 def main():
-    """Main retraining pipeline with DrugBank label integration and robust DTI file path handling"""
-    print("RE-TRAINING GCN WITH STRUCTURED DATA (DrugBank labels)")
-    print("=" * 70)
-    print("Using matrices created by prepare_structured_training.py")
-    print("DrugBank DTI pairs used for positive/negative labels")
-    print("=" * 70)
+    """Main retraining pipeline with DrugBank label integration"""
+    logging.info(f"RE-TRAINING GCN WITH STRUCTURED DATA (DrugBank labels)")
+    logging.info("Using matrices created by prepare_structured_training.py")
+    logging.info("DrugBank DTI pairs used for positive/negative labels")
     # Load structured data
     adj_matrix, mappings, triplets = load_structured_data()
     # Create node features
     num_entities = mappings['num_entities']
-    node_features, entity_types = create_node_features(num_entities, mappings)
+    node_features = create_node_features(num_entities, mappings)
     # Convert to edge_index
     edge_index = adjacency_to_edge_index(adj_matrix)
-    # Path to DrugBank DTI file: allow override via environment variable
-    env_path = os.environ.get('DRUGBANK_DTI_PATH')
-    if env_path:
-        drugbank_path = env_path
-        print(f"Using DrugBank DTI file from environment variable: {drugbank_path}")
-    else:
-        # Use the actual location found in the workspace
-        drugbank_path = os.path.join(os.path.dirname(__file__), 'drugbank', 'dti', 'train.tsv')
-        print(f"Using detected DrugBank DTI file path: {drugbank_path}")
+    drugbank_path = os.path.join(os.path.dirname(__file__), 'data/drugbank_dti/train.tsv')
     # Create training data using DrugBank
     train_data, test_data = create_training_data_with_drugbank(triplets, num_entities, mappings, drugbank_path)
     # Train model
@@ -396,12 +374,11 @@ def main():
     scores = generate_triplet_scores(model, node_features, edge_index, triplets, mappings)
     # Save results
     model_path, scores_path = save_retrained_results(model, scores, mappings)
-    print(f"\nRE-TRAINING COMPLETE!")
-    print("=" * 50)
-    print(f"Model: {model_path}")
-    print(f"Scores: {scores_path}")
-    print(f"Entities: {num_entities:,}")
-    print(f"Triplets: {len(triplets):,}")
+    logging.info(f"RE-TRAINING COMPLETE!")
+    logging.info(f"Model: {model_path}")
+    logging.info(f"Scores: {scores_path}")
+    logging.info(f"Entities: {num_entities:,}")
+    logging.info(f"Triplets: {len(triplets):,}")
 
 
 if __name__ == "__main__":

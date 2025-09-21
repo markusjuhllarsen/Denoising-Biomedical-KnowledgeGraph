@@ -1,34 +1,28 @@
-try:
-    from tqdm import tqdm
-    TQDM_AVAILABLE = True
-except ImportError:
-    TQDM_AVAILABLE = False
-
-"""
-RE-TRAINING GCN with structured data
-Uses matrices created by prepare_structured_training.py
-"""
-
 import os
 import json
 import numpy as np
-import pandas as pd
-from collections import defaultdict
+import logging
 
-def load_structured_data():
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(message)s",
+    datefmt="%H:%M:%S"
+)
+
+def load_structured_data(datapath):
     """Load structured data"""
-    
-    # Load attribut.json (structured triplets)
-    attribut_path = os.path.join(os.path.dirname(__file__), 'data_for_corentin+g-retriever', 'new_kg', 'attribut.json')
-    with open(attribut_path, 'r', encoding='utf-8') as f:
-        attribut_data = json.load(f)
-    
+
+    # Load edges.json (structured triplets)
+    edges_path = os.path.join(os.path.dirname(__file__), datapath, 'edges.json')
+    with open(edges_path, 'r', encoding='utf-8') as f:
+        edges_data = json.load(f)
+
     # Load descriptions.json (ID -> name mapping)
-    descriptions_path = os.path.join(os.path.dirname(__file__), 'data_for_corentin+g-retriever', 'new_kg', 'descriptions.json')
+    descriptions_path = os.path.join(os.path.dirname(__file__), datapath, 'descriptions.json')
     with open(descriptions_path, 'r', encoding='utf-8') as f:
         descriptions = json.load(f)
-    
-    return attribut_data, descriptions
+
+    return edges_data, descriptions
 
 def create_entity_mappings(descriptions):
     """Create entity ID <-> index mappings for the GCN"""
@@ -52,29 +46,29 @@ def create_entity_mappings(descriptions):
     unique_ids = sorted(set(id_to_name.keys()))
     id_to_idx = {entity_id: idx for idx, entity_id in enumerate(unique_ids)}
     idx_to_id = {idx: entity_id for entity_id, idx in id_to_idx.items()}
-    
-    print(f"Unique entities: {len(unique_ids)}")
-    print(f"Mapping created: {len(id_to_idx)} entities")
-    
+
+    logging.info(f"Unique entities: {len(unique_ids)}")
+    logging.info(f"Mapping created: {len(id_to_idx)} entities")
+
     return id_to_name, id_to_info, id_to_idx, idx_to_id
 
-def process_structured_triplets(attribut_data, id_to_idx):
+def process_structured_triplets(edges_data, id_to_idx):
     """Process structured triplets for training"""
     
     processed_triplets = []
     relation_types = set()
     skipped_count = 0
-    
-    for entry in attribut_data:
+
+    for edge in edges_data:
         # Verify that the entry is complete
-        if not all(key in entry for key in ['source', 'target', 'relation']):
+        if not all(key in edge for key in ['source', 'target', 'relation']):
             skipped_count += 1
             continue
-            
-        source_id = entry['source']
-        target_id = entry['target']
-        relation = entry['relation']
-        
+
+        source_id = edge['source']
+        target_id = edge['target']
+        relation = edge['relation']
+
         # Verify that IDs exist in the mapping
         if source_id not in id_to_idx or target_id not in id_to_idx:
             skipped_count += 1
@@ -93,18 +87,17 @@ def process_structured_triplets(attribut_data, id_to_idx):
         
         relation_types.add(relation)
     
-    print(f"Processed triplets: {len(processed_triplets)}")
-    print(f"Skipped triplets: {skipped_count}")
-    print(f"Relation types: {len(relation_types)}")
-    
+    logging.info(f"Processed triplets: {len(processed_triplets)}")
+    logging.info(f"Skipped triplets: {skipped_count}")
+    logging.info(f"Relation types: {len(relation_types)}")
+
     return processed_triplets, list(relation_types)
 
 def create_adjacency_matrices(processed_triplets, num_entities, relation_types):
     """Create adjacency matrices for GCN training"""
     
-    print(f"\nCREATING ADJACENCY MATRICES")
-    print("=" * 50)
-    
+    logging.info(f"CREATING ADJACENCY MATRICES")
+
     # Global adjacency matrix
     adj_matrix = np.zeros((num_entities, num_entities), dtype=np.float32)
     
@@ -130,43 +123,42 @@ def create_adjacency_matrices(processed_triplets, num_entities, relation_types):
     total_edges = np.sum(adj_matrix) / 2  # Divided by 2 for undirected
     density = total_edges / (num_entities * (num_entities - 1) / 2) * 100
     
-    print(f"Global matrix: {num_entities}x{num_entities}")
-    print(f"Total edges: {int(total_edges):,}")
-    print(f"Graph density: {density:.4f}%")
-    
+    logging.info(f"Global matrix: {num_entities}x{num_entities}")
+    logging.info(f"Total edges: {int(total_edges):,}")
+    logging.info(f"Graph density: {density:.4f}%")
+
     # Statistics by relation
-    print(f"\nRELATION STATISTICS:")
-    print("-" * 50)
+    logging.info(f"RELATION STATISTICS:")
     for rel_type in sorted(relation_types):
         rel_edges = np.sum(relation_matrices[rel_type])
-        print(f"{rel_type:<25}: {int(rel_edges):,} edges")
-    
+        logging.info(f"{rel_type:<25}: {int(rel_edges):,} edges")
+
     return adj_matrix, relation_matrices
 
 def save_training_data(adj_matrix, relation_matrices, processed_triplets, 
                       id_to_name, id_to_info, id_to_idx, idx_to_id, relation_types):
     """Save prepared data for training"""
-    
-    print(f"\nSAVING TRAINING DATA")
-    print("=" * 50)
-    
-    output_dir = os.path.join(os.path.dirname(__file__), 'structured_training_data')
+
+    logging.info(f"SAVING TRAINING DATA")
+
+    output_dir = os.path.join(os.path.dirname(__file__), 'data/structured_training_data')
     os.makedirs(output_dir, exist_ok=True)
     
     # Adjacency matrices
     np.save(os.path.join(output_dir, 'adjacency_matrix.npy'), adj_matrix)
-    print("adjacency_matrix.npy saved")
-    
+    logging.info("adjacency_matrix.npy saved")
+
     # Relation matrices
+    """
     relation_dir = os.path.join(output_dir, 'relation_matrices')
     os.makedirs(relation_dir, exist_ok=True)
-    
+
     for rel_type, matrix in relation_matrices.items():
         safe_name = rel_type.replace(' ', '_').replace('/', '_').lower()
         np.save(os.path.join(relation_dir, f'{safe_name}.npy'), matrix)
-    
-    print(f"{len(relation_matrices)} relation matrices saved")
-    
+
+    logging.info(f"{len(relation_matrices)} relation matrices saved")
+    """
     # Mappings and metadata
     mappings = {
         'id_to_name': id_to_name,
@@ -180,14 +172,14 @@ def save_training_data(adj_matrix, relation_matrices, processed_triplets,
     
     with open(os.path.join(output_dir, 'mappings.json'), 'w', encoding='utf-8') as f:
         json.dump(mappings, f, indent=2, ensure_ascii=False)
-    
-    print("mappings.json saved")
-    
+
+    logging.info("mappings.json saved")
+
     # Processed triplets
     with open(os.path.join(output_dir, 'processed_triplets.json'), 'w', encoding='utf-8') as f:
         json.dump(processed_triplets, f, indent=2, ensure_ascii=False)
-    
-    print("processed_triplets.json saved")
+
+    logging.info("processed_triplets.json saved")
     
     # Compatibility files
     create_compatibility_files(processed_triplets, id_to_name, output_dir)
@@ -213,30 +205,28 @@ def create_compatibility_files(processed_triplets, id_to_name, output_dir):
     
     with open(os.path.join(output_dir, 'kg_structured_relationships.json'), 'w', encoding='utf-8') as f:
         json.dump(kg_compatible, f, indent=2, ensure_ascii=False)
-    
-    print("kg_structured_relationships.json (compatibility format) saved")
+
+    logging.info("kg_structured_relationships.json (compatibility format) saved")
 
 def main():
     """Main pipeline for preparation"""
-    
-    print("PREPARING STRUCTURED DATA FOR GCN RE-TRAINING")
-    print("=" * 70)
-    print("Using attribut.json + descriptions.json")
-    print("=" * 70)
-    
+
+    logging.info("PREPARING STRUCTURED DATA FOR GCN RE-TRAINING")
+    logging.info("Using edges.json + descriptions.json")
+
     # Load data
-    attribut_data, descriptions = load_structured_data()
-    
-    print(f"\nDATA LOADED:")
-    print(f"   Descriptions: {len(descriptions)} entities")
-    print(f"   Attributes: {len(attribut_data)} triplets")
-    
+    edges_data, descriptions = load_structured_data("data/llm_data")
+
+    logging.info(f"DATA LOADED:")
+    logging.info(f"Descriptions: {len(descriptions)} entities")
+    logging.info(f"Edges: {len(edges_data)} triplets")
+
     # Create mappings
     id_to_name, id_to_info, id_to_idx, idx_to_id = create_entity_mappings(descriptions)
     
     # Process triplets
-    processed_triplets, relation_types = process_structured_triplets(attribut_data, id_to_idx)
-    
+    processed_triplets, relation_types = process_structured_triplets(edges_data, id_to_idx)
+
     # Create matrices
     num_entities = len(id_to_idx)
     adj_matrix, relation_matrices = create_adjacency_matrices(processed_triplets, num_entities, relation_types)
@@ -245,14 +235,11 @@ def main():
     output_dir = save_training_data(adj_matrix, relation_matrices, processed_triplets,
                                    id_to_name, id_to_info, id_to_idx, idx_to_id, relation_types)
     
-    print(f"\nDATA PREPARED SUCCESSFULLY!")
-    print("=" * 50)
-    print(f"Output folder: {output_dir}")
-    print(f"Entities: {num_entities:,}")
-    print(f"Triplets: {len(processed_triplets):,}")
-    print(f"Relations: {len(relation_types)}")
-    
-
+    logging.info(f"DATA PREPARED SUCCESSFULLY!")
+    logging.info(f"Output folder: {output_dir}")
+    logging.info(f"Entities: {num_entities:,}")
+    logging.info(f"Triplets: {len(processed_triplets):,}")
+    logging.info(f"Relations: {len(relation_types)}")
 
 if __name__ == "__main__":
     main()

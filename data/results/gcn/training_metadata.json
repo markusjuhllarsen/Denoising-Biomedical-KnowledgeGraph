@@ -1,0 +1,12 @@
+{
+  "model_type": "StructuredGCN",
+  "num_entities": 8290,
+  "num_triplets": 9846,
+  "score_range": {
+    "min": 0.0001644798758206889,
+    "max": 0.9972796440124512,
+    "mean": 0.38970120864262486,
+    "std": 0.2184164933245747
+  },
+  "training_complete": true
+}

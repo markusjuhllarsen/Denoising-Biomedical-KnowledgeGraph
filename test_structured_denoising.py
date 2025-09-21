@@ -1,26 +1,33 @@
 """
-Adaptive denoising test using the new structured GCN scores
+Adaptive denoising test using the new GCN-based triplet scores
 """
 
 import os
 import json
 import numpy as np
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(message)s",
+    datefmt="%H:%M:%S"
+)
 
 def load_denoising_results_structured():
     """Load the original KG and the new structured GCN scores."""
     # Load original KG
-    kg_path = os.path.join(os.path.dirname(__file__), 'warith', 'kg_llm_relationships_all.json')
+    kg_path = os.path.join(os.path.dirname(__file__), 'data/llm_data/kg_llm_relationships_all.json')
     with open(kg_path, 'r', encoding='utf-8') as f:
         kg_data = json.load(f)
-    # Load new structured GCN scores
-    scores = np.load(os.path.join(os.path.dirname(__file__), 'kg_gcn_scores_structured.npy'))
-    # Extract triplets (head, relation, tail)
+    # Load new GCN-based triplet scores
+    scores = np.load(os.path.join(os.path.dirname(__file__), 'data/results/gcn/triplet_scores.npy'))
+    # Extract triplets (source, relation, target)
     triplets = []
     for entry in kg_data:
-        h = entry["node_1"]["name"]
+        s = entry["node_1"]["name"]
         t = entry["node_2"]["name"]
         r = entry["relationship"]
-        triplets.append((h, r, t))
+        triplets.append((s, r, t))
     return triplets, scores, kg_data
 
 def classify_relation_type(relation):
@@ -76,34 +83,33 @@ def adaptive_denoising_structured(triplets, scores):
     """Apply adaptive denoising using the new GCN scores and relation-specific thresholds."""
     keep_mask = np.zeros(len(triplets), dtype=bool)
     for i, (h, r, t) in enumerate(triplets):
-        category, threshold, rationale = classify_relation_type(r)
+        _, threshold, _ = classify_relation_type(r)
         if scores[i] >= threshold:
             keep_mask[i] = True
     return keep_mask
 
 def test_structured_denoising():
-    """Run adaptive denoising using the new GCN scores and print summary statistics."""
-    print("ADAPTIVE DENOISING TEST - STRUCTURED GCN SCORES")
-    print("=" * 70)
+    """Run adaptive denoising using the new GCN scores and log summary statistics."""
+    logging.info("ADAPTIVE DENOISING TEST - STRUCTURED GCN SCORES")
     # Load data with new scores
     triplets, scores, kg_data = load_denoising_results_structured()
-    print(f"Loaded data:")
-    print(f"   Triplets: {len(triplets):,}")
-    print(f"   Scores (new): {len(scores):,}")
-    print(f"   Score distribution: min={np.min(scores):.4f}, max={np.max(scores):.4f}, mean={np.mean(scores):.4f}")
+    logging.info(f"Loaded data:")
+    logging.info(f"Triplets: {len(triplets):,}")
+    logging.info(f"Scores (new): {len(scores):,}")
+    logging.info(f"Score distribution: min={np.min(scores):.4f}, max={np.max(scores):.4f}, mean={np.mean(scores):.4f}")
     # Apply adaptive denoising
     keep_mask = adaptive_denoising_structured(triplets, scores)
     # Compute statistics
     total_triplets = len(triplets)
     kept_count = int(keep_mask.sum())
     removed_count = total_triplets - kept_count
-    print(f"\nResults with new scores:")
-    print(f"   Triplets kept: {kept_count:,} ({kept_count/total_triplets*100:.1f}%)")
-    print(f"   Triplets removed: {removed_count:,} ({removed_count/total_triplets*100:.1f}%)")
+    logging.info(f"Results with new scores:")
+    logging.info(f"Triplets kept: {kept_count:,} ({kept_count/total_triplets*100:.1f}%)")
+    logging.info(f"Triplets removed: {removed_count:,} ({removed_count/total_triplets*100:.1f}%)")
     # Comparison with previous results (static reference)
-    print(f"\nComparison:")
-    print(f"   BEFORE (original scores): 145 removed (1.5%)")
-    print(f"   AFTER (structured scores): {removed_count} removed ({removed_count/total_triplets*100:.1f}%)")
+    logging.info(f"Comparison:")
+    logging.info(f"BEFORE (original scores): 145 removed (1.5%)")
+    logging.info(f"AFTER (structured scores): {removed_count} removed ({removed_count/total_triplets*100:.1f}%)")
     # Extract removed triplets for validation
     removed_triplets = []
     for i, (h, r, t) in enumerate(triplets):
@@ -135,15 +141,14 @@ def test_structured_denoising():
         output_path = os.path.join(os.path.dirname(__file__), 'kg_adaptive_removed_triplets_structured.json')
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
-        print(f"\nRemoved triplets saved:")
-        print(f"   File: kg_adaptive_removed_triplets_structured.json")
-        print(f"   Triplets: {len(removed_triplets):,}")
+        logging.info(f"Removed triplets saved:")
+        logging.info(f"File: kg_adaptive_removed_triplets_structured.json")
+        logging.info(f"Triplets: {len(removed_triplets):,}")
     else:
-        print(f"\nNo triplet removed.")
-        print("   All triplets have sufficiently high scores.")
+        logging.info(f"No triplet removed.")
+        logging.info(f"All triplets have sufficiently high scores.")
     # Score analysis by category
-    print(f"\nScore analysis by category:")
-    print("-" * 60)
+    logging.info(f"Score analysis by category:")
     category_stats = {}
     for i, (h, r, t) in enumerate(triplets):
         category, threshold, _ = classify_relation_type(r)
@@ -163,10 +168,10 @@ def test_structured_denoising():
     for category, stats in sorted(category_stats.items()):
         total = len(stats['scores'])
         above = stats['above_threshold']
-        below = stats['below_threshold']
+        #below = stats['below_threshold']
         mean_score = np.mean(stats['scores'])
         threshold = stats['threshold']
-        print(f"{category:<25}: {above:>4}/{total:<4} kept ({above/total*100:>5.1f}%) | Mean score: {mean_score:.3f} | Threshold: {threshold:.2f}")
+        logging.info(f"{category:<25}: {above:>4}/{total:<4} kept ({above/total*100:>5.1f}%) | Mean score: {mean_score:.3f} | Threshold: {threshold:.2f}")
     return removed_triplets
 
 def main():
